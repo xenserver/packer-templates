@@ -27,7 +27,6 @@
       "ssh_wait_timeout": "8h",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "clone_template": "Windows 7 (64-bit)",
-      "keep_vm": "always",
 
       "floppy_files": [
         "./floppy/windows_7/Autounattend.xml",

@@ -108,5 +108,4 @@ zfs set mountpoint=/usr zroot/usr
 zfs set mountpoint=/var zroot/var
 
 # Reboot
-#reboot
-poweroff
+reboot

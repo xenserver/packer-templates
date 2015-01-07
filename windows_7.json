@@ -44,6 +44,7 @@
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
+        "./scripts/windows/install-tools.bat",
         "./scripts/windows/disable-auto-logon.bat",
         "./scripts/windows/enable-rdp.bat",
         "./scripts/windows/compile-dotnet-assemblies.bat",

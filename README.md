@@ -15,7 +15,7 @@ To use these configs, run something along the lines of:
 sudo HOST=<host> USERNAME=<username> PASSWORD=<password> HTTP_PORT=80 packer build freebsd-10.1-amd64.json
 ```
 
-Currently no Linux template contains any provisioning. In the future we should look into installing Tools in a provision script -- Packer already attaches the Tools ISO to the VM, so it's just a case of loop-mounting and installing.
+Currently no Linux template contains any provisioning (see https://github.com/xenserver/packer-templates/issues/2). In the future we should look into installing Tools in a provision script -- Packer already attaches the Tools ISO to the VM, so it's just a case of loop-mounting and installing.
 
 ## Caveats
 

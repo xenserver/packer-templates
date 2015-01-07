@@ -15,27 +15,26 @@
       "http_port_min": "{{user `http_port_min`}}",
       "http_port_max": "{{user `http_port_max`}}",
 
-      "vm_name": "packer-win7",
-      "disk_size": 20000,
-      "iso_url": "http://care.dlservice.microsoft.com/dl/download/evalx/win7/x64/EN/7600.16385.090713-1255_x64fre_enterprise_en-us_EVAL_Eval_Enterprise-GRMCENXEVAL_EN_DVD.iso",
+      "vm_name": "packer-win2008",
+      "disk_size": 61440,
+      "iso_url": "http://download.microsoft.com/download/7/5/E/75EC4E54-5B02-42D6-8879-D8D3A25FBEF7/7601.17514.101119-1850_x64fre_server_eval_en-us-GRMSXEVAL_EN_DVD.iso",
       "iso_checksum_type": "md5",
-      "iso_checksum": "1d0d239a252cb53e466d39e752b17c28",
+      "iso_checksum": "4263be2cf3c59177c45085c0a7bc6ca5",
       "http_directory": "http",
-      "boot_wait": "10s",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
-      "ssh_wait_timeout": "8h",
+      "ssh_wait_timeout": "2h",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-      "clone_template": "Windows 7 (64-bit)",
+      "clone_template": "Windows Server 2008 (64-bit)",
 
       "floppy_files": [
-        "./floppy/windows_7/Autounattend.xml",
-        "./scripts/windows/dis-updates.ps1",
+        "./floppy/2008_r2_core/Autounattend.xml",
         "./scripts/windows/microsoft-updates.bat",
         "./scripts/windows/win-updates.ps1",
         "./scripts/windows/openssh.ps1",
         "./scripts/windows/http-get.ps1"
-      ]
+      ],
+      "boot_wait": "10s"
     }
   ],
   "provisioners": [
@@ -45,9 +44,8 @@
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
         "./scripts/windows/install-tools.bat",
-        "./scripts/windows/disable-auto-logon.bat",
         "./scripts/windows/enable-rdp.bat",
-        "./scripts/windows/compile-dotnet-assemblies.bat",
+        "./scripts/windows/disable-auto-logon.bat",
         "./scripts/windows/compact.bat"
       ]
     }

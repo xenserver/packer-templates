@@ -1,0 +1,38 @@
+{
+  "variables": {
+      "remote_host": "{{env `HOST`}}",
+      "remote_username": "{{env `USERNAME`}}",
+      "remote_password": "{{env `PASSWORD`}}",
+      "http_port_min": "{{env `HTTP_PORT`}}{{env `HTTP_PORT_MIN`}}",
+      "http_port_max": "{{env `HTTP_PORT`}}{{env `HTTP_PORT_MAX`}}",
+
+      "mirror": "http://download.fedoraproject.org/pub/fedora/linux"
+  },
+  "builders": [
+    {
+      "type": "xenserver-iso",
+      "remote_host": "{{user `remote_host`}}",
+      "remote_username": "{{user `remote_username`}}",
+      "remote_password": "{{user `remote_password`}}",
+      "http_port_min": "{{user `http_port_min`}}",
+      "http_port_max": "{{user `http_port_max`}}",
+
+      "vm_name": "packer-fedora-20-amd64",
+      "disk_size": 40960,
+      "iso_url": "{{user `mirror`}}/releases/20/Fedora/x86_64/iso/Fedora-20-x86_64-DVD.iso",
+      "iso_checksum": "f2eeed5102b8890e9e6f4b9053717fe73031e699c4b76dc7028749ab66e7f917",
+      "iso_checksum_type": "sha256",
+      "http_directory": "http",
+      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "10000s",
+
+      "boot_command": [
+        "<tab> linux ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/fedora-20/ks.cfg<enter><wait>"
+      ],
+      "boot_wait": "10s"
+    }
+  ]
+}
+

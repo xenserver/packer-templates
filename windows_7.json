@@ -21,7 +21,7 @@
       "iso_checksum_type": "md5",
       "iso_checksum": "1d0d239a252cb53e466d39e752b17c28",
       "http_directory": "http",
-      "boot_wait": "2m",
+      "boot_wait": "10s",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_wait_timeout": "8h",

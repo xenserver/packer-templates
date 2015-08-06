@@ -17,7 +17,7 @@
       "http_port_min": "{{user `http_port_min`}}",
       "http_port_max": "{{user `http_port_max`}}",
 
-      "vm_name": "packer-centos-6.6-amd64"
+      "vm_name": "packer-centos-6.6-amd64",
       "disk_size": 40960,
       "iso_checksum": "4ed6c56d365bd3ab12cd88b8a480f4a62e7c66d2",
       "iso_checksum_type": "sha1",
@@ -30,7 +30,7 @@
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos6-ks.cfg<enter><wait>"
       ],
-      "boot_wait": "10s",
+      "boot_wait": "10s"
     }
   ]
 }
